@@ -1,0 +1,19 @@
+{
+  "name": "meditation-mobile-app",
+  "private": true,
+  "packageManager": "yarn@4.9.2",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently --raw -k -n \"backend,frontend\" -c \"cyan,magenta\" \"yarn --cwd apps/backend start:dev\" \"yarn --cwd apps/frontend start\"",
+    "start": "yarn dev",
+    "type-check": "yarn workspaces run tsc -p tsconfig.json --noEmit",
+    "lint": "yarn workspaces run eslint \"**/*.{ts,tsx,js,jsx}\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "eslint": "^9.5.0",
+    "typescript": "^5.5.0"
+  }
+}
